@@ -52,3 +52,8 @@ Install via Smithery:
 ```bash
 npx @smithery/cli install atushi1841/tcg-price-japan --client claude
 ```
+
+## MCP Registry
+
+This server is registered on the official [MCP Registry](https://registry.modelcontextprotocol.io).
+Find it via search: [tcg-price-japan](https://registry.modelcontextprotocol.io/v0/servers?search=io.github.tcg-price-japan)
