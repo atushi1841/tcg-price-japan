@@ -17,26 +17,11 @@ used-price dataset collected from suruga-ya.jp.
 - Marketplace: suruga-ya.jp
 - No network, no API key, no account required
 
-## Installation (Smithery)
-
-Install via Smithery registry:
-```bash
-smithery install @atushi1841/tcg-price-japan
-```
-
-## More MCP Servers
-
-- **[kensho-kaku](https://github.com/atushi1841/kensho-kaku)** — Sweepstakes from ken-kaku.com
-- **[kensho-kclub](https://github.com/atushi1841/kensho-kclub)** — Sweepstakes from kenshou.club
-- **[kensho-kema](https://github.com/atushi1841/kensho-kema)** — Sweepstakes from ke-ma.net
-- **[kensho-sweep-mcp](https://github.com/atushi1841/kensho-sweep-mcp)** — Full pipeline sweepstakes data
-- **[japan-anime-figure-mcp](https://github.com/atushi1841/japan-anime-figure-mcp)** — Anime figure price comparison
-
 ## Data Source: Apify Store
 
 The underlying dataset is also available as a managed Apify Actor:
 
-- **[Apify Store: surugaya-japan-hobby-prices](https://apify.com/atushi1841/acts/surugaya-japan-hobby-prices)**
+- **surugaya-japan-hobby-prices** — [https://apify.com/atushi1841/acts/surugaya-japan-hobby-prices](https://apify.com/atushi1841/acts/surugaya-japan-hobby-prices)
   (Actor ID: `F8Hl0a8Cx9bpJBrxR`) — same surugaya-ya.jp TCG price data, refreshed on a schedule
 
 ## Run
@@ -54,4 +39,16 @@ Requires `fastmcp>=3.0.0` (see `requirements.txt`).
 
 ```bash
 npx -y @anthropic-ai/mcpb pack . dist/tcg-price-japan.mcpb
+```
+
+## Data Source: Apify Store & Smithery Registry
+
+This MCP server is available on:
+
+- **Apify Store**: [TCG prices from suruga-ya.jp](https://apify.com/fruitful_quintessence/acts/surugaya-japan-hobby-prices) — TCG prices from suruga-ya.jp
+- **Smithery Registry**: [Install via Smithery](https://server.smithery.ai/atushi1841/tcg-price-japan) — MCP server for AI agents
+
+Install via Smithery:
+```bash
+npx @smithery/cli install atushi1841/tcg-price-japan --client claude
 ```
