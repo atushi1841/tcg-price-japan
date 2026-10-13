@@ -9,7 +9,7 @@ used-price dataset collected from suruga-ya.jp.
 |---|---|
 | `tcg_current_price(item)` | Latest used/new/list price snapshot (JPY) for an item |
 | `tcg_price_history(item, limit=50)` | Price time series (oldest first) |
-| `tcg_top_movers(direction, limit=10)` | Biggest `\|delta JPY\|` movers, optional up/down filter |
+| `tcg_top_movers(direction, limit=10)` | Biggest `|delta JPY|` movers, optional up/down filter |
 
 ## Data
 
@@ -56,4 +56,15 @@ npx @smithery/cli install atushi1841/tcg-price-japan --client claude
 ## MCP Registry
 
 This server is registered on the official [MCP Registry](https://registry.modelcontextprotocol.io).
-Find it via search: [tcg-price-japan](https://registry.modelcontextprotocol.io/v0/servers?search=io.github.tcg-price-japan)
+Find it via search: [tcg-price-japan](https://registry.modelcontextprotocol.io/v0/servers?search=io.github.atushi1841/tcg-price-japan)
+
+## MCP 公式レジストリ登録済み
+
+本サーバーはMCP公式レジストリに登録済みです。
+
+- **Registry**: [MCP Registry](https://registry.modelcontextprotocol.io/v0/servers?search=io.github.atushi1841/tcg-price-japan)
+
+```bash
+# レジストリでの確認
+curl -s "https://registry.modelcontextprotocol.io/v0.1/servers?search=atushi1841" | grep -o "\"io.github.atushi1841/tcg-price-japan\""
+```
