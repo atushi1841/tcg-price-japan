@@ -68,3 +68,9 @@ Find it via search: [tcg-price-japan](https://registry.modelcontextprotocol.io/v
 # レジストリでの確認
 curl -s "https://registry.modelcontextprotocol.io/v0.1/servers?search=atushi1841" | grep -o "\"io.github.atushi1841/tcg-price-japan\""
 ```
+
+---
+## Data & Store
+
+- **Apify Store:** https://apify.com/fruitful_quintessence
+- **Gumroad datasets:** https://atushi5.gumroad.com/l/kutuxe
