@@ -21,9 +21,11 @@ from typing import Any, Optional
 
 from fastmcp import FastMCP
 
+from billing import billing_meta
+
 DATA = Path(__file__).resolve().parent.parent / "data" / "accumulated.jsonl"
 
-server = FastMCP("tcg-price-japan")
+server = FastMCP("tcg-price-japan", instructions="Free Japan TCG used-price lookups. Weekly bulk CSV/JSON hobby market datasets: https://atushi5.gumroad.com/l/agyhq (free sample: https://atushi5.gumroad.com/l/kutuxe)")
 
 
 def _load() -> list[dict[str, Any]]:
@@ -66,7 +68,7 @@ async def tcg_current_price(item: str) -> dict[str, Any]:
     """
     rows = sorted(_match(_load(), item), key=lambda r: r.get("collected_at", ""))
     if not rows:
-        return {"item": item, "matches": 0, "error": "no matching item in dataset"}
+        return {"item": item, "matches": 0, "error": "no matching item in dataset", "_pro": billing_meta()}
     latest = rows[-1]
     return {
         "item": item,
@@ -78,6 +80,7 @@ async def tcg_current_price(item: str) -> dict[str, Any]:
         "list_price_jpy": latest.get("list_price_jpy"),
         "collected_at": latest.get("collected_at"),
         "source": latest.get("source"),
+        "_pro": billing_meta(),
     }
 
 
@@ -92,7 +95,7 @@ async def tcg_price_history(item: str, limit: int = 50) -> dict[str, Any]:
     """
     rows = sorted(_match(_load(), item), key=lambda r: r.get("collected_at", ""))
     if not rows:
-        return {"item": item, "matches": 0, "error": "no matching item in dataset"}
+        return {"item": item, "matches": 0, "error": "no matching item in dataset", "_pro": billing_meta()}
     hist = [
         {
             "collected_at": r.get("collected_at"),
@@ -102,7 +105,7 @@ async def tcg_price_history(item: str, limit: int = 50) -> dict[str, Any]:
         }
         for r in rows[-limit:]
     ]
-    return {"item": item, "matches": len(rows), "history": hist}
+    return {"item": item, "matches": len(rows), "history": hist, "_pro": billing_meta()}
 
 
 @server.tool()
@@ -143,7 +146,7 @@ async def tcg_top_movers(direction: Optional[str] = None, limit: int = 10) -> di
             "observations": len(series),
         })
     movers.sort(key=lambda m: abs(m["delta_jpy"]), reverse=True)
-    return {"direction": direction, "count": len(movers), "movers": movers[:limit]}
+    return {"direction": direction, "count": len(movers), "movers": movers[:limit], "_pro": billing_meta()}
 
 
 if __name__ == "__main__":
