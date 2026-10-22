@@ -12,7 +12,7 @@
       "registryType": "mcpb",
       "identifier": "https://github.com/atushi1841/tcg-price-japan/releases/download/v1.4.0/server.mcpb",
       "version": "1.4.0",
-      "fileSha256": "a5feef73db3107a65a3869c777e52bc902a5d53d1666c2ea55110edf4660baa0",
+      "fileSha256": "9520f5e32d71b9e0e7f6a3fdf859b3f156ff91f9a864d0005f380a7d23083869",
       "transport": {
         "type": "stdio"
       }
